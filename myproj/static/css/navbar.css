@@ -1,0 +1,90 @@
+body {
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar a {
+    color: white;
+}
+
+.bg-pink {
+    background-color: #ff9d9d;
+}
+
+.pink-txt {
+    color: #ff9d9d;
+}
+
+.bg-dark-pink {
+    background-color: #fd387a;
+}
+
+.dark-pink-txt {
+    color: #fd387a;
+}
+
+.blue-txt {
+    color: #64b5f6;
+}
+
+.bg-blue {
+    background-color: #64b5f6;
+}
+
+.navbar-collapse {
+    font-size: 15px;
+}
+
+.nav-link:hover {
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+#pred a {
+    color: black;
+}
+
+#gopred {
+    background-color: #FF9A8B;
+    background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+
+}
+
+#prednav {
+    background-color: #64b5f6;
+    border-radius: 4px;
+
+
+}
+
+#prednav a {
+    color: white;
+    text-decoration: none;
+    cursor: default;
+}
+
+#cancnav a {
+    color: #64b5f6;
+    text-decoration: none;
+
+}
+
+#cancnav a:hover {
+    color: black;
+
+}
+
+.cardiB .btn {
+    color: white;
+    padding: 16px;
+    border-radius: 5px;
+    border-radius: 10px;
+
+}
+
+
+
+.cardiB .btn:hover {
+    background-color: #64b5f6;
+
+}

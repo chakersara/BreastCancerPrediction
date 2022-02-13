@@ -1,0 +1,179 @@
+{ "gouvs":[{
+            "tag": "tunis",
+            "patterns": ["tunis", "tounes"],
+            "responses": "tunis"
+
+        },
+        {
+            "tag": "gouv_benarous",
+            "patterns": ["ben arous", "bin arous", "ben 3rous", "benarous", "binarous"],
+            "responses": "ben arous"
+
+        },
+        {
+            "tag": "gouv_benarous",
+            "patterns": ["ben arous", "bin arous", "ben 3rous", "benarous", "binarous"],
+            "responses": "ben arous"
+
+        },
+        {
+            "tag": "gouv_manouba",
+            "patterns": ["menouba", "manouba", "manoba", "menoba"],
+            "responses": "la manouba"
+
+        },
+        {
+            "tag": "gouv_bizerte",
+            "patterns": ["bizerte", "bizert", "benzart", "binzart"],
+            "responses": "bizerte"
+
+        },
+        {
+            "tag": "gouv_beja",
+            "patterns": ["béja", "bèja", "baja", "beja"],
+            "responses": "beja"
+
+        },
+        {
+            "tag": "gouv_nabeul",
+            "patterns": ["nabeul", "nabel", "nebel", "nebil"],
+            "responses": "nabeul"
+
+        },
+        {
+            "tag": "gouv_zaghouan",
+            "patterns": ["zaghouan", "zaghwen", "zeghwen", "zeghouen", "zeghwen"],
+            "responses": "zaghouan"
+
+        },
+        {
+            "tag": "gouv_jendouba",
+            "patterns": ["jendouba", "jandouba", "jindouba", "jendoba", "jandoub", "jandoba"],
+            "responses": "jendouba"
+
+        },
+        {
+            "tag": "gouv_kef",
+            "patterns": ["le kef", "kef", "kaf"],
+            "responses": "le kef"
+
+        },
+        {
+            "tag": "gouv_siliana",
+            "patterns": ["siliana", "siliena", "séliana", "sèliana", "séliéna", "sélièna"],
+            "responses": "siliana"
+
+        },
+        {
+            "tag": "gouv_sousse",
+            "patterns": ["sousse", "soussa", "sehel", "jawhr"],
+            "responses": "sousse"
+        },
+        {
+            "tag": "gouv_monastir",
+            "patterns": ["monastir", "mounastir", "mistir", "mastir", "monastire", "mestire"],
+            "responses": "monastir"
+
+        },
+        {
+            "tag": "gouv_kairouan",
+            "patterns": ["kairouan", "kairouane", "9erwen", "9arwen", "karouane", "kairwane", "kairwan"],
+            "responses": "kairouan"
+
+        }, {
+            "tag": "gouv_mahdia",
+            "patterns": ["mahdia", "mehdia", "mihdia"],
+            "responses": "mahdia"
+
+        }, {
+            "tag": "gouv_kasserine",
+            "patterns": ["kasserine", "gasserine", "gasrin", "gasrin", "gasren", "kaserin", "kasserin"],
+            "responses": "kasserine"
+
+        }, {
+            "tag": "gouv_sidibouzid",
+            "patterns": ["sidi bou zid", "bouzid", "sidi bozid", "bozid", "Sidi bouzid"],
+            "responses": "sidi bouzid"
+
+        }, {
+            "tag": "gouv_sfax",
+            "patterns": ["sfax", "sifax", "sfakes", "sfaxes", "sfakes", "sfekes"],
+            "responses": "sfax"
+
+        }, {
+            "tag": "gouv_gafsa",
+            "patterns": ["gafsa", "gaffsa", "gfsa"],
+            "responses": "gafsa"
+
+        },
+        {
+            "tag": "gouv_tozeur",
+            "patterns": ["tozeur", "tozer", "touzer", "touzir"],
+            "responses": "tozeur"
+
+        },
+        {
+            "tag": "gouv_gabes",
+            "patterns": ["gébes", "gébés", "gebes", "gèbes", "gabes", "gébis", "gebis"],
+            "responses": "gabès"
+
+        },
+        {
+            "tag": "gouv_medenine",
+            "patterns": ["medenine", "medenine", "midinin", "madnine", "madnin"],
+            "responses": "medenine"
+
+        },
+        {
+            "tag": "gouv_kebili",
+            "patterns": ["kebili", "kébili", "kbli", "kèbili"],
+            "responses": "kebili"
+
+        }
+
+
+        ,
+        {
+            "tag": "gouv_tataouine",
+            "patterns": ["tataouine", "tatawine", "tetawine", "tetaouine", "tatawin", "tataouin"],
+            "responses": "tataouine"
+
+        }, {
+            "tag": "gouv_ariana",
+            "patterns": ["ariana", "ariena", "aariena", "ari ana", "eriana"],
+            "responses": "ariana"
+
+        }
+    ],
+    "spec":[{
+        "tag": "doc",
+        "patterns": ["docteur","docteurs","doctor","medecin","medecins","médecin","médecins","mèdecin","mèdecins","med","doc","tabib","tbib","spécialiste"],
+        "responses": ""
+
+    },
+    {
+        "tag": "cancérologues",
+        "patterns": ["cancérologue","cancérologues","cancerologue","cancerologues","cancerolo","cancérolo",
+            "oncologue","oncologues","oncologe","oncolog","oncologes","oncologs","oncologiste","oncologistes","onocologist",
+            "onocologists","onocologists","onoco","onocos","onocologie","onocologies","cancéro","cancero"],
+        "responses": "carc"
+
+    },
+    {
+        "tag": "génycologues",
+        "patterns": [
+            "gynécologue","gynécologues","gynècologue","gynècologues","gynecologue","gynecologues",
+            "gynéco","gynécos","gyneco","gynecos",
+            "génycologue","génycologues","genycologue","genycologues","genyco","genyco",
+            "gényco","gényco","gènyco","gènyco","genycos","genycos","génycos","génycos",
+            "génicologue","génicologues","genicologue","genicologues",
+            "génycologe","génycologes","genycologe","genycologes",
+            "généticien","généticienne","généticiens","généticiennes","obstétrique","obstetrique"
+        ],
+        "responses": "genyco"
+
+    }
+    
+
+    ]
+}

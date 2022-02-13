@@ -1,0 +1,150 @@
+{% extends "model.html"%}
+
+{%block head%}
+{{super()}}
+<script src="https://kit.fontawesome.com/3039daa690.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+<style>
+  #conBL {
+
+    font-size: 16px;
+  }
+
+  #chatButt {
+    border-radius: 50%;
+  }
+  label{
+    font-size: 14.4px;
+  }
+  .form-outline input{
+    padding: 0.2rem;
+    font-size: 15px;
+  }
+</style>
+{%endblock%}
+
+{%block content%}
+<section class="vh-100" style="background-color:white;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" style="border-radius: 1rem; ">
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="/static/img/doctorLog.jpeg" alt="login form" class="img-fluid"
+                style="border-radius: 1rem 0 0 1rem;" />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-5 p-lg-5 text-black">
+
+                <form method="POST">
+
+                  <div class="d-flex align-items-center mb-3 pb-1">
+                    <i class="fas fa-ribbon mr-1 fa-2x me-3" style="color: #ff9d9d;"></i>
+                    <span class="h2 fw-bold mb-0">PRÉDICTEUR BCC</span>
+                  </div>
+
+                  <h6 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;font-size: 12px;">
+                    Remplissez le formulaire pour obtenir votre prédiction.
+                  </h6>
+                  {% if malade %}
+                  <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                    <strong>Consultez un médecin spécialiste dès que possible !</strong> 
+                    <button type="button" class="close " data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  {% endif %}
+                  {% if nonmalade %}
+                  <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                    <strong>La probabilité de contracter un cancer du sein est faible.</strong> 
+                    <button type="button" class="close " data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  {% endif %}
+                  <div class="row">
+                    <div class="form-outline mb-2 col-6">
+                      <label class="form-label" for="form2Example17">Moyenne du rayon </label>
+
+                      <input type="number" id="form2Example17" min="0" step="0.000001" name="rm" class="form-control form-control-lg"
+                        required />
+                    </div>
+                     <div class="form-outline mb-2 col-6">
+                      <label class="form-label" for="form2Example27">Moyenne de texture</label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example27" name="tm" class="form-control form-control-lg"
+                        required />
+                    </div>
+                    <div class="form-outline mb-2 col-6">
+                      <label class="form-label" for="form2Example27">Moyenne du périmètre</label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example27" name="pm" class="form-control form-control-lg"
+                        required />
+                    </div>
+                    <div class="form-outline mb-2 col-6">
+                      <label class="form-label" for="form2Example17">Moyenne de la surface </label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example17" name="am" class="form-control form-control-lg"
+                        required />
+                    </div>
+                    <div class="form-outline mb-2 col-6">
+                      <label class="form-label" for="form2Example17">Moyenne de régularité </label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example17" name="sm" class="form-control form-control-lg"
+                        required />
+                    </div>
+                    
+                    <div class="form-outline mb-2 col-6">
+                      <label class="form-label" for="form2Example27">Moyenne de compacité </label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example27" name="cm1" class="form-control form-control-lg"
+                        required />
+                    </div> 
+                    <div class="form-outline mb-4 col-6">
+                      <label class="form-label" for="form2Example27">Moyenne de concavité </label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example27" name="cm2" class="form-control form-control-lg"
+                        required />
+                    </div>
+                    <div class="form-outline mb-4 col-6">
+                      <label class="form-label" for="form2Example27">Moyenne des points concaves</label>
+
+                      <input type="number" min="0" step="0.000001" id="form2Example27" name="cpm" class="form-control form-control-lg"
+                        required />
+                    </div>
+                    <div class="form-outline mb-2 col-12  text-center my-auto"  >
+                      <button id="conBL" class="btn btn-lg btn-dark btn-block  text-center  " style="margin-top:5px; ">
+                        <i class="fas fa-notes-medical"></i>
+                        Prédire</button>
+                    </div>
+  
+                  </div>
+
+
+
+
+
+
+                  
+                </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{%endblock%}

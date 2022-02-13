@@ -1,0 +1,82 @@
+{% extends "dashboard/pages/charts/chartjs.html" %}
+
+{%block content %}
+
+<div class="content-wrapper">
+    
+    <div class="row">
+        
+        <div class="col-md-2">
+          
+        </div>
+        <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ajout d'un administrateur</h4>
+                    <p class="card-description pr-3" style="font-size: 11px;"> Attention, seul le super administrateur a le droit de consulter la liste des administrateurs , de les créer et de les modifier.</p>
+                    <form class="forms-sample" method="POST" action="">
+                        {% if failed %}
+                        <div class="alert alert-danger alert-dismissible fade show mt-2"  role="alert">
+                            <strong style="font: 10px;">{{message}}</strong>
+                            <button type="button" class="close " data-dismiss="alert"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endif %}
+                        {% if success %}
+                        <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                            <strong style="font: 10px;">Administrateur ajouté avec succès!</strong>
+                            <button type="button" class="close " data-dismiss="alert"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endif %}
+                        <div class="form-group">
+                            <label for="exampleInputUsername1" class="text-capitalize">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                required>
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Nom d'utilisateur</label>
+                            <input type="text" class="form-control" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Mot de passe</label>
+                            <input type="password" class="form-control" id="mdp" name="mdp"
+                                placeholder="" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Confirmation de mot de passe</label>
+                            <input type="password" class="form-control" id="mdp2" name="mdp2"
+                                placeholder="" required>
+                        </div>
+                      
+                        <div class="form-group w-100">
+                            <label for="exampleInputConfirmPassword1">Role</label>
+                            <br>
+                            <select class="form-select form-select-lg mb-3 w-100" aria-label=".form-select-lg example"
+                                id="role" name="role" required>
+                                <option></option>
+                                <option class="text-capitalize" value="admin" name="admin">Administrateur</option>
+
+                                <option class="text-capitalize" value="superadmin" name="superadmin">Super Administrateur</option>
+
+                            </select>
+
+                        </div>
+                        <button type="submit" class="btn btn-danger mr-2">Ajouter</button>
+                        <button class="btn btn-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/navbar.css')}}">
+    <script src="https://kit.fontawesome.com/3039daa690.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="collapseIndicatorExampleOne">
+        <div class="card">
+          <a href="#collapseIndicatorChevron" class="card-header collapse-indicator-chevron" id="headingExampleTwo" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseIndicatorChevron">
+            Collapse with chevron icon indicator
+          </a>
+      
+          <div id="collapseIndicatorChevron" class="collapse" aria-labelledby="headingExampleTwo" data-bs-parent="#collapseIndicatorExampleOne">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dark background -->
+      <div id="collapseIndicatorExampleOneDark">
+        <div class="card bg-dark">
+          <a href="#collapseIndicatorChevronDark" class="card-header collapse-indicator-chevron text-white" id="headingExampleTwoDark" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseIndicatorChevronDark">
+            Collapse with chevron icon indicator
+          </a>
+      
+          <div id="collapseIndicatorChevronDark" class="collapse text-white" aria-labelledby="headingExampleTwoDark" data-bs-parent="#collapseIndicatorExampleOneDark">
+            <div class="card-body">
+              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred.
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    <div class="col">
+        <a class="btn btn-primary w-100" data-toggle="collapse" href="#cardGouv" role="button" aria-expanded="false"
+            aria-controls="cardGouv"><i class="fas fa-caret-down mr-2"></i>Gouvernorat</a>
+    </div>
+
+    <div class="col">
+        <button class="btn btn-primary w-100" type="button" data-toggle="collapse" data-target="#cardSpec"
+            aria-expanded="false" aria-controls="cardSpec"><i class="fas fa-caret-down mr-2"></i>Spécialité</button>
+    </div>
+    <div class="col">
+        <button class="h-100 bg-blue " id="subSpec" type="submit"><i class="fas fa-check"></i></button>
+    </div>
+    </div>
+    <div class="row">
+
+        
+
+        <div class="row">
+            <div class="col">
+                <button data-toggle="collapse" data-target="#cardGouv">Gouvernorat</button>
+
+                <div class="overflow-auto " id="cardGouv" <i class="collapse"></i>>
+                    <div class="card card-body">
+                        <div class="d-flex flex-wrap align-content-start container boxChoix" id="gouvListe">
+
+                            {%for gouv in liste%}
+                            <div class="form-check">
+                                <input type="Checkbox" name="{{gouv.lower()}}" value="{{gouv.lower()}}">
+                                <label class="form-check-label text-responsive" for="exampleCheck1">{{gouv}}</label>
+
+                            </div>
+                            {%endfor%}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <button data-toggle="collapse" data-target="#demo2">Collapsible</button>
+
+                <div id="demo2" class="collapse">
+                    Lorem ipsum dolor text....
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

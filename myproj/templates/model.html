@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head%}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Care Cancer</title>
+    <link rel="shortcut icon" href="/static/img/rub.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{url_for('.static', filename='/css/navbar.css')}}">
+    <script src="https://kit.fontawesome.com/3039daa690.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+    <script src="/js/buttonChat.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('.static', filename='/css/butt.css')}}">
+
+    <style>
+        #msgCh {
+            display: none;
+        }
+
+        .detailBox {
+            background-color: rgb(252, 252, 252);
+            width: 320px;
+            max-width: 320px;
+            border: 1px solid #bbb;
+            border-radius: 10px;
+        }
+
+        .titleBox {
+            padding: 10px;
+            border-top-right-radius: 9px;
+            border-top-left-radius: 9px;
+
+        }
+
+        .titleBox label {
+            font-weight: bold;
+            font-size: 14px;
+            color: rgb(248, 248, 248);
+            margin: 0;
+            display: inline-block;
+        }
+
+
+        .commentBox {
+            padding: 10px;
+            border-top: 1px dotted #bbb;
+        }
+
+        .commentBox .form-group:first-child,
+        .actionBox .form-group:first-child {
+            width: 80%;
+        }
+
+        .commentBox .form-group:nth-child(2),
+        .actionBox .form-group:nth-child(2) {
+            width: 18%;
+        }
+
+        .actionBox .form-group * {
+            width: 100%;
+        }
+
+        .taskDescription {
+            margin-top: 10px 0;
+        }
+
+        .commentList {
+            padding: 0;
+            list-style: none;
+            max-height: 250px;
+            min-height: 80px;
+            overflow-y:auto;
+        
+        }
+
+        .commentList li {
+            margin: 0;
+            margin-top: 0px;
+        }
+
+        .commentList li>div {
+            display: table-cell;
+        }
+
+        .chatImg {
+            width: 90%;
+        }
+
+
+
+        .actionBox {
+            border-top: 1px dotted #bbb;
+            padding: 10px;
+        }
+
+        .talkerCh {
+            font-size: 11px;
+            font-weight: bold;
+            color: rgb(0, 0, 31);
+        }
+
+        .msgCht {
+            font-size: 12.5px;
+        }
+
+        .hourChat {
+            font-size: 10px;
+            color: rgb(139, 139, 139);
+        }
+    </style>
+    {% endblock%}
+</head>
+
+<body>
+    {% block navbar %}
+    <nav class="navbar sticky-top navbar-expand-lg  bg-dark-pink text-white px-3">
+        <a class="navbar-brand" href="/"><i class="fas fa-ribbon pr-2"></i>Breast Cancer Care</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon align-middle"><i class="align-middle fas fa-bars"></i></span>
+        </button>
+        <div class="collapse navbar-collapse text-uppercase" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active" id="pred">
+                    <a class="nav-link " href="/predict">Predicteur</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/docteurs">Docteurs</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('index', _anchor='savezvous')}}">Savez-vous que?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {% endblock %}
+
+    <div class="myContent">
+        {% block content %}{% endblock %}
+    </div>
+    <div class="chatbot fixed-bottom pb-2 px-1">
+        <div>
+            <div class="float-right buttC">
+
+                <div id="msgCh">
+                    <div class="detailBox">
+                        <div class="titleBox bg-pink text-center">
+                            <label><i class="fas fa-ribbon pr-1"></i>Assistant BCC</label>
+                            <button type="button" onclick="hideChat(this.parentNode.parentNode.parentNode)"
+                                class="close" aria-hidden="true">&times;</button>
+                        </div>
+
+                        <div class="actionBox">
+                            <ul id="msgCHBOT" class="commentList">
+                                <li class="row">
+                                    <div class="col-2 p-0">
+                                        <img class="chatImg"
+                                            src="/static/img/doc.png">
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="talkerCh  mb-0 pb-1">BCC</p>
+                                        <p class="msgCht mb-0 pb-0">
+                                            C'est votre assistant BCC. Comment peux-je vous aidez?
+                                        </p>
+                                        <p class="hourChat text-right"><script>
+                                        let date=new Date() ; 
+                                        let datePOst=date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                                        document.querySelector('.hourChat').innerHTML=datePOst;
+                                        </script></p>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    <input id="messageUser" class="form-control" type="text"
+                                        placeholder="Votre message" />
+                                </div>
+                                <div class="form-group">
+                                    <button type="button" id="getInput" class="bg-pink text-white ml-1 btn btn-default"><i
+                                              class="fas fa-paper-plane"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="float-right">
+                    <button id="chatButt" class="btn btn-circle btn-circle-xl m-1" onclick="chatClick(this)">
+                        <i class="far fa-comments"></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        {% block footer %}
+        
+        
+        {% endblock %}
+    </div>
+</body>
+<script>
+
+    function chatClick(butt) {
+        let chatBot = document.querySelector("#msgCh");
+        butt.style.display = "none";
+        chatBot.style.display = "block";
+    }
+
+    function hideChat(box) {
+        box.style.display = "none";
+        let textMe = document.querySelector("#chatButt");
+        textMe.style.display = "block";
+    }
+    let btnMsg = document.querySelector("#getInput");
+    let input = document.querySelector('#messageUser');
+    let msgBox = document.querySelector("#msgCHBOT");
+    let messageBody=document.querySelector('.commentList');
+    
+    btnMsg.addEventListener("click", async (e) => {
+        const search = input.value;
+        if (search.length > 0) {
+            msgBox.innerHTML += `<li id="msgCHBOT" class="row">
+                                    <div class="col-2 p-0">
+                                        <img class="chatImg"
+                                            src="/static/img/user.png" />
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="talkerCh  mb-0 pb-1">VOUS</p>
+                                        <p class="msgCht mb-0 pb-0">
+                                            ${search}
+                                        </p>
+                                        <p class="hourChat text-right">${new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds()}</p>
+                                    </div>
+
+                                </li>`
+            input.value = ""
+            let result;
+            try {
+                result = await chatbot(search)
+            } catch (error) {
+                result = "error"
+            }
+            msgBox.innerHTML += `<li class="row">
+                                    <div class="col-2 p-0">
+                                        <img class="chatImg"
+                                            src="/static/img/doc.png">
+                                    </div>
+                                    <div class="col-10">
+                                        <p class="talkerCh  mb-0 pb-1">BCC</p>
+                                        <p class="msgCht mb-0 pb-0">
+                                            ${result}
+                                        </p>
+                                        <p class="hourChat text-right">${new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds()}</p>
+                                    </div>
+                                </li>`
+                messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
+        }
+    })
+    const chatbot = async(search) => {
+    const resp = await fetch(`http://localhost:8099/api/chatbot/${search}}`)
+    const txt = await resp.text()
+    return ("text",txt);
+}
+
+</script>
+
+<!--script defer>
+    console.log("salut")
+    console.log(document.querySelector("body"))
+    $('.buttC').click(function () {
+        $(this).find('i').toggleClass('far fa-comments fas fa-times')
+    });
+</script-->
+
+</html>

@@ -1,0 +1,105 @@
+{"intents":[{
+        "tag": "greeting",
+        "patterns": [
+            "Salut",
+            "Bonjour",
+            "Bonsoir"
+        ],
+        "responses": [
+            "Salut,Besoin d'aide? ",
+            "Bonjour, Comment peux-je vous aidez?",
+            "Bonjour, C'est votre assistant BCC"
+        ]
+    },
+    {
+        "tag": "goodbye",
+        "patterns": [
+            "Au revoir",
+            "Bye",
+            "Bonne nuit",
+            "Ciao",
+            "Adios"
+        ],
+        "responses": [
+            "Bonne journée.",
+            "Bye Bye!",
+            "Au revoir, Bonne journée."
+        ]
+    },
+    {
+        "tag": "thanks",
+        "patterns": [
+            "merci"
+        ],
+        "responses": [
+            "Je vous en prie.",
+            "À votre service.",
+            "Ça me fait plaisir."
+        ]
+    }, {
+        "tag": "bcc",
+        "patterns": [
+            "qui etes vous",
+            "c'est qui",
+            "tu es qui",
+            "vous etes qui",
+            "t qui",
+            "qui es tu",
+            "qui etes vous"
+        ],
+        "responses": [
+            "Je suis votre assistant BCC."
+        ]
+    },
+    {
+        "tag": "cava",
+        "patterns": [
+            "ca va",
+            "comment ca va",
+            "comment allez vous",
+            "tu vas bien",
+            "vous allez bien"
+        ],
+        "responses": [
+            "Oui et vous?",
+            "Très bien,Merci.",
+            "Super et vous?"
+        ]
+    },
+    {
+        "tag": "ok",
+        "patterns": [
+            "ok",
+            "okey",
+            "okay"
+        ],
+        "responses": [
+            "😀"
+        ]
+    },
+    {
+        "tag": "oui",
+        "patterns": [
+            "oui", "yes", "yep", "oui", "aidez moi", "besoin d aide", "besoin d'aide", "besoin de l'aide"
+        ],
+        "responses": [
+            "Comment peux-je vous aidez?"
+        ]
+
+    },
+    {
+        "tag": "blague",
+        "patterns": [
+            "blague","drole","drôle","rire","funny"
+        ],
+        "responses": [
+            "Quelle est la plus intelligente, la blonde, la rousse ou la brune ?<br>La rousse parce que c’est un dictionnaire.",
+            "Pourquoi les sorcières utilisent des balais pour voler ?<br>Parce que les aspirateurs sont trop lourds !",
+            "Si une horloge sonne 13 fois, quelle heure est-il?<br>Il est l’heure d’acheter une nouvelle horloge!",
+            "Pourquoi un ordinateur voudrait-il se gratter?<br>Parce qu’il a des puces!"
+        ]
+
+    }
+
+]
+}

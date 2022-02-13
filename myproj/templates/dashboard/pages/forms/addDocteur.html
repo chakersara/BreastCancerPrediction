@@ -1,0 +1,94 @@
+{% extends "dashboard/pages/charts/chartjs.html" %}
+
+{%block content %}
+<div class="content-wrapper">
+
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Ajout d'un médecin</h4>
+                    <p class="card-description"> Remlissez le formulaire</p>
+                    <form class="forms-sample" method="post" action="">
+                        {% if failed %}
+                        <div class="alert alert-danger alert-dismissible fade show mt-2" role="alert">
+                            <strong>Veuillez choisir une spécialité!</strong>
+                            <button type="button" class="close " data-dismiss="alert"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endif %}
+                        {% if success %}
+                        <div class="alert alert-success alert-dismissible fade show mt-2" role="alert">
+                            <strong>Docteur ajouté avec succès!</strong>
+                            <button type="button" class="close " data-dismiss="alert"
+                                aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        {% endif %}
+                        <div class="form-group">
+                            <label for="exampleInputUsername1" class="text-capitalize">Nom du docteur</label>
+                            <input type="text" class="form-control" id="nom" name="nom"
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Spécialité</label>
+                            {% for sp in spec%}
+                            <div class="form-check form-check-danger">
+                                <label class="form-check-label text-capitalize">
+                                    <input type="radio" class="form-check-input" name="spec" id="{{sp}}" value="{{sp}}">
+                                    {{sp}} <i class="input-helper"></i></label>
+                            </div>
+                            
+
+
+                            {%endfor%}
+
+
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Mode Exercice</label>
+                            <input type="text" class="form-control" id="modeex" name="modeex" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Adresse</label>
+                            <input type="text" class="form-control" id="adresse" name="adresse"
+                                placeholder="" >
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputConfirmPassword1">Téléphone</label>
+                            <input type="text" class="form-control" id="tel" name="tel"
+                                placeholder="" required>
+                        </div>
+                        <div class="form-group w-100">
+                            <label for="exampleInputConfirmPassword1">Gouvernorats</label>
+                            <br>
+                            <select class="form-select form-select-lg mb-3 w-100" aria-label=".form-select-lg example"
+                                id="gouv" name="gouv" required>
+                                <option></option>
+                                {% for gv in gouv%}
+
+                                <option class="text-capitalize" value="{{gv}}" name="{{gv}}">{{gv}}</option>
+                                {% endfor %}
+
+                                
+
+                            </select>
+
+                        </div>
+                        <button type="submit" class="btn btn-danger mr-2">Ajouter</button>
+                        <a class="btn btn-light" href="/admin/admins">Retour</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+
+{%endblock%}

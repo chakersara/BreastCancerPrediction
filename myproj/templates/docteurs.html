@@ -1,0 +1,228 @@
+{% extends "model.html" %}
+{% block head %}
+{{super()}}
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+<script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script>
+
+<style>
+    #pagination a {
+        color: #64b5f6;
+    }
+
+    #subSpec {
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 50px;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+        box-shadow: rgba(128, 128, 128, 0.808) 1px 0px 2px 0px;
+    }
+
+    #subSpec:hover {
+        background-color: rgb(132, 207, 20);
+    }
+
+    #gouvListe {
+        font-size: 11px;
+    }
+
+    #specListe {
+        font-size: 13px;
+    }
+
+    .boxCOL {
+        background-color: rgba(128, 128, 128, 0.041);
+        border-bottom: 1px solid gray;
+        border-left: 1px solid gray;
+    }
+
+    .chooseMED {
+        background-color: #ff9d9d;
+        font-size: 11.5px;
+    }
+
+    .formOK {
+        font-size: 11.5px;
+    }
+
+    @media (max-width: 544px) {
+
+        .formOK,
+        .chooseMED {
+            font-size: 0.5rem;
+        }
+
+        /*1rem = 16px*/
+    }
+
+    #tableMed {
+        font-size: 13.5px;
+    }
+
+    .tabBB{
+        max-height: 540px;
+    }
+   #searchTAB input{
+       border-radius: 4px;
+       border: 1px silver solid;
+       font-size: 13px;
+       outline: none;
+       
+   }
+</style>
+<script defer>
+    $('.card-btn').click(function () {
+        $(this).find('i').toggleClass('fas fa-plus fas fa-minus')
+    });
+</script>
+{% endblock %}
+{% block content %}
+<h4 class="mx-auto text-center mt-5 text-uppercase ">Trouvez votre docteur <span
+        class="dark-pink-txt">spécialiste</span>
+    <aside class="mt-1">en <span class="dark-pink-txt">un clic</span> !</aside>
+</h4>
+
+
+<form action="/form" method="POST" class="mx-5">
+
+    <div class="row mt-2">
+        <div class="col-sm-9 col-md-6 col-lg-4 d-none d-md-block">
+
+            {% include "map.html" %}
+
+        </div>
+
+        <div class="col-sm-12 col-md-6  col-lg-8 mt-5">
+            <div class="row">
+                <div class="container">
+                    <div class="text-right table-responsive">
+
+                        <div id="accordion btn-group">
+
+                            <button type="button" class="mb-2 card-btn btn  chooseMED" data-toggle="collapse"
+                                data-target="#collapseOne">
+                                <b class="header-title  mr-2">
+                                    Gouvernorats</b>
+                                <i class="fas fa-plus "></i>
+
+                            </button>
+
+                            <button type="button" class="chooseMED mb-2 card-btn btn" data-toggle="collapse"
+                                data-target="#collapseTwo">
+
+                                <b class="header-title  mr-2">
+                                    Specialités</b>
+                                <i class="fas fa-plus float "></i>
+                            </button>
+
+                            <button type="submit" class="loat-right formOK mb-2 card-btn btn btn-success ">
+
+                                <i class="fas fa-check"></i>
+
+                            </button>
+                            <div id="collapseOne" class="collapse">
+                                <div class="card-body  boxCOL">
+                                    <p class="text-info">
+
+                                        <div class="d-flex flex-wrap align-content-start boxChoix" id="gouvListe">
+
+                                            {%for gouv in liste%}
+                                            <div class="form-check">
+                                                <input type="Checkbox" name="{{gouv.lower()}}" value="{{gouv.lower()}}">
+                                                <label class="form-check-label text-responsive"
+                                                    for="exampleCheck1">{{gouv}}</label>
+
+                                            </div>
+                                            {%endfor%}
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="collapseTwo" class="collapse">
+                                <div class="card-body boxCOL">
+                                    <div class="d-flex flex-wrap align-content-start " id="specListe">
+                                        <div class="form-check text-left">
+                                            <input type="Checkbox" name="Carcinologie médicale"
+                                                value="Carcinologie médicale">
+                                            <label class="form-check-label text-responsive"
+                                                for="exampleCheck1">Carcinologie
+                                                médicale</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input type="Checkbox" name="Gynécologie obstétrique"
+                                                value="Gynécologie obstétrique">
+                                            <label class="form-check-label text-responsive"
+                                                for="exampleCheck1">Gynécologie
+                                                obstétrique</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="searchTAB" class="mb-2 d-flex align-items-baseline rounded mt-1">
+                <input type="text" name="searchBar" id="inpSearsh" placeholder="Recherche" class="h-100 py-1 w-100 form-check">
+
+        </div>
+            <div class="tabBB table-responsive mt-0 scrollbar square scrollbar-lady-lips">
+                
+                
+                <table class="table " id="tableMed">
+                    <thead class=" text-center">
+                        <tr>
+                            <th>Nom & Prénom</th>
+                            <th>Spécialité</th>
+                            <th>Adresse</th>
+                            <th>Téléphone</th>
+                            <th>Gouvernorat</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {% for elem in medListe %}
+                        <tr>
+                            <td class="nomTD text-center">{{elem.get("nom")}}</td>
+                            <td class="specTD text-center">{{elem.get("specialite")}}</td>
+                            <td class="adrsTD">{{elem.get("adresse")}}</td>
+                            <td class="telTD text-center">{{elem.get("telephone")}}</td>
+                            <td class="gouvTD  text-center">{{elem.get("gouvernorat")}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+</form>
+
+<div id="mapContainer"></div>
+
+
+<script defer>
+    $(document).ready(function(){
+      $("#inpSearsh").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#tableMed tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script> 
+
+<script defer
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=&v=weekly"
+      async
+    ></script>
+
+
+{% endblock %}
